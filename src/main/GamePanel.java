@@ -50,6 +50,10 @@ public class GamePanel extends JPanel implements Runnable{
 		this.setFocusable(true); //Foca em receber as teclas
 	}
 	
+	public void setupGame() {
+		aSetter.setObject();
+	}
+	
 	public void startGameThread() {
 		gameThread = new Thread(this); //Instanciando um Thread
 		gameThread.start(); //Chama o método run
@@ -96,11 +100,19 @@ public class GamePanel extends JPanel implements Runnable{
 	}
 	public void paintComponent(Graphics g) { //Graphics é uma classe que tem muitas funções para desenhar objetos na tela
 		super.paintComponent(g);
-		
 		Graphics2D g2 = (Graphics2D)g;
 		
+		//TILE
 		tileM.draw(g2);
 		
+		//OBJETO
+		for(int i = 0; i < obj.length; i++) {
+			if(obj[i] != null) {
+				obj[i].draw(g2, this);
+			}
+		}
+		
+		//PLAYER
 		player.draw(g2);
 		
 		g2.dispose(); //Elimina esse contexto gráfico e libera todos os recursos do sistema que ele estiver usando

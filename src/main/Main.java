@@ -18,6 +18,7 @@ public class Main {
 		window.setLocationRelativeTo(null); //Janela no centro da tela
 		window.setVisible(true); //Possível ver janela
 		
+		gamePanel.setupGame();
 		gamePanel.startGameThread();
 	}
 
