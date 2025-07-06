@@ -37,6 +37,7 @@ public class GamePanel extends JPanel implements Runnable{
 	Sound se = new Sound();
 	public CollisionChecker cChecker = new CollisionChecker(this); //Checa as colisões
 	public AssetSetter aSetter = new AssetSetter(this);
+	public UI ui = new UI(this);
 	Thread gameThread; //Faz o programa rodar
 	
 	// ENTIDADE E OBJETO
@@ -118,6 +119,9 @@ public class GamePanel extends JPanel implements Runnable{
 		
 		//PLAYER
 		player.draw(g2);
+		
+		//UI
+		ui.draw(g2);
 		
 		g2.dispose(); //Elimina esse contexto gráfico e libera todos os recursos do sistema que ele estiver usando
 	}
